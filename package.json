@@ -1,0 +1,43 @@
+{
+  "name": "instantiable-fastdom",
+  "version": "0.1.0",
+  "description": "Allow fastdom to be instantiable so you can clear groups of jobs.",
+  "main": "./index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ftlabs/instantiable-fastdom.git"
+  },
+  "keywords": [
+    "fastdom",
+    "performance",
+    "layout",
+    "fruitmachine"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ftlabs/instantiable-fastdom/issues"
+  },
+  "dependencies": {
+    "fastdom": "git://github.com/orangemug/fastdom.git#nodejs_fastdom"
+  },
+  "devDependencies": {
+    "mocha": "~1.1",
+    "sinon": "~1.9"
+  },
+  "testling": {
+    "harness": "mocha-bdd",
+    "browsers": [
+      "ie/8..latest",
+      "firefox/24..latest",
+      "chrome/28..latest",
+      "opera/12.0", "opera/15..latest",
+      "iphone/6..latest",
+      "safari/5.1..latest"
+    ],
+    "harness" : "mocha",
+    "files": "test/index.js"
+  }
+}
