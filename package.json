@@ -4,7 +4,7 @@
   "description": "Allow fastdom to be instantiable so you can clear groups of jobs.",
   "main": "./index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test"
+    "test": "./node_modules/.bin/mocha test/index.js"
   },
   "repository": {
     "type": "git",
@@ -24,11 +24,12 @@
     "fastdom": "git://github.com/orangemug/fastdom.git#nodejs_fastdom"
   },
   "devDependencies": {
-    "mocha": "~1.1",
-    "sinon": "~1.9"
+    "mocha": "~1.18.2",
+    "sinon": "~1.9",
+    "testling": "~1.6.1"
   },
   "testling": {
-    "harness": "mocha-bdd",
+    "harness": "mocha-tdd",
     "browsers": [
       "ie/8..latest",
       "firefox/24..latest",
@@ -38,6 +39,6 @@
       "safari/5.1..latest"
     ],
     "harness" : "mocha",
-    "files": "test/index.js"
+    "files": "./test/index.js"
   }
 }

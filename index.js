@@ -111,7 +111,11 @@ Fastdom.prototype.defer = function(frames, fn, ctx) {
  * Wraps the fastdom.clear API.
  */
 Fastdom.prototype.clear = function() {
-  var clear = this._fastdom.clear.bind(this._fastdom);
+  var self = this;
+  var clear = function(id) {
+    self._fastdom.clear(id);
+  };
+
   this._jobs.read.forEach(clear);
   this._jobs.write.forEach(clear);
   this._jobs.defer.forEach(clear);
