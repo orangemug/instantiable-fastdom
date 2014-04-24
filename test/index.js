@@ -1,5 +1,6 @@
 var assert = require("assert");
 var sinon  = require("sinon");
+var size   = require("lodash.size");
 
 var fastdom = require("fastdom");
 var raf     = require("./raf");
@@ -18,11 +19,11 @@ describe("instantiable-fastdom", function() {
     var fd = this.fastdom;
 
     fd.read(spy);
-    assert.equal(fd._jobs.read.length, 1);
+    assert.equal(size(fd._jobs.read), 1);
 
     raf(function() {
       assert(spy.called);
-      assert.equal(fd._jobs.read.length, 0);
+      assert.equal(size(fd._jobs.read), 0);
       done();
     });
   });
@@ -32,11 +33,11 @@ describe("instantiable-fastdom", function() {
     var fd = this.fastdom;
 
     fd.write(spy);
-    assert.equal(fd._jobs.write.length, 1);
+    assert.equal(size(fd._jobs.write), 1);
 
     raf(function() {
       assert(spy.called);
-      assert.equal(fd._jobs.write.length, 0);
+      assert.equal(size(fd._jobs.write), 0);
       done();
     });
   });
@@ -46,11 +47,11 @@ describe("instantiable-fastdom", function() {
     var fd = this.fastdom;
 
     fd.defer(spy);
-    assert.equal(fd._jobs.defer.length, 1);
+    assert.equal(size(fd._jobs.defer), 1);
 
     raf(function() {
       assert(spy.called);
-      assert.equal(fd._jobs.defer.length, 0);
+      assert.equal(size(fd._jobs.defer), 0);
       done();
     });
   });

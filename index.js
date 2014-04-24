@@ -10,20 +10,11 @@
  * Module Dependencies
  */
 var fastdom = require('fastdom');
+var each    = require("lodash.foreach");
 
 
-/**
- * Removes an item from a list.
- *
- * @param  {*} item
- * @param  {Array} list
- */
-function remove(item, list) {
-  var i = list.indexOf(item);
-  if (~i) {
-    list.splice(i,1);
-  }
-}
+// uid for jobs
+var uid = 0;
 
 
 /**
@@ -33,9 +24,9 @@ function Fastdom(_fastdom) {
 	// Mainly used for testing.
 	this._fastdom = _fastdom || fastdom;
   this._jobs = {
-    read: [],
-    write: [],
-    defer: []
+    read: {},
+    write: {},
+    defer: {}
   };
 }
 
@@ -51,12 +42,14 @@ function Fastdom(_fastdom) {
  */
 Fastdom.prototype.read = function(fn, ctx) {
   var self = this;
+  var id = uid++;
+
   var job = this._fastdom.read(function() {
-    remove(job, self._jobs.read);
+    delete self._jobs.read[id];
     fn.call(ctx);
   });
 
-  this._jobs.read.push(job);
+  this._jobs.read[id] = job;
 };
 
 /**
@@ -70,12 +63,14 @@ Fastdom.prototype.read = function(fn, ctx) {
  */
 Fastdom.prototype.write = function(fn, ctx) {
   var self = this;
+  var id = uid++;
+
   var job = this._fastdom.write(function() {
-    remove(job, self._jobs.write);
+    delete self._jobs.write[id];
     fn.call(ctx);
   });
 
-  this._jobs.write.push(job);
+  this._jobs.write[id] = job;
 };
 
 
@@ -90,6 +85,7 @@ Fastdom.prototype.write = function(fn, ctx) {
  */
 Fastdom.prototype.defer = function(frames, fn, ctx) {
   var self = this;
+  var id = uid++;
 
   // Frames argument is optional
   if (typeof frames === 'function') {
@@ -99,11 +95,11 @@ Fastdom.prototype.defer = function(frames, fn, ctx) {
   }
 
   var job = this._fastdom.defer(frames, function() {
-    remove(job, self._jobs.defer);
+    delete self._jobs.defer[id];
     fn.call(ctx);
   });
 
-  this._jobs.defer.push(job);
+  this._jobs.defer[id] = job;
 };
 
 
@@ -116,9 +112,9 @@ Fastdom.prototype.clear = function() {
     self._fastdom.clear(id);
   };
 
-  this._jobs.read.forEach(clear);
-  this._jobs.write.forEach(clear);
-  this._jobs.defer.forEach(clear);
+  each(this._jobs.read,  clear);
+  each(this._jobs.write, clear);
+  each(this._jobs.defer, clear);
 };
 
 

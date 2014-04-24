@@ -21,17 +21,19 @@
     "url": "https://github.com/ftlabs/instantiable-fastdom/issues"
   },
   "dependencies": {
-    "fastdom": "git://github.com/orangemug/fastdom.git#nodejs_fastdom"
+    "fastdom": "git://github.com/orangemug/fastdom.git#nodejs_fastdom",
+    "lodash.foreach": "~2.4.1"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
     "sinon": "~1.9",
-    "testling": "~1.6.1"
+    "testling": "~1.6.1",
+    "lodash.size": "~2.4.1"
   },
   "testling": {
     "harness": "mocha-tdd",
     "browsers": [
-      "ie/8..latest",
+      "ie/9..latest",
       "firefox/24..latest",
       "chrome/28..latest",
       "opera/12.0", "opera/15..latest",
