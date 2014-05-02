@@ -72,6 +72,10 @@ describe("instantiable-fastdom", function() {
 
     fd.clear();
 
+    assert.equal(size(fd._jobs.read),  0);
+    assert.equal(size(fd._jobs.write), 0);
+    assert.equal(size(fd._jobs.defer), 0);
+
     raf(function() {
       raf(function() {
         assert.equal(origSpy.callCount, 3);
