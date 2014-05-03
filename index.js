@@ -115,6 +115,11 @@ Fastdom.prototype.clear = function() {
   each(this._jobs.read,  clear);
   each(this._jobs.write, clear);
   each(this._jobs.defer, clear);
+
+  // Clear the queues
+  this._jobs.read  = {};
+  this._jobs.write = {};
+  this._jobs.defer = {};
 };
 
 
