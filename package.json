@@ -4,11 +4,11 @@
   "description": "Allow fastdom to be instantiable so you can clear groups of jobs.",
   "main": "./index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/index.js"
+    "test": "./node_modules/testling/bin/cmd.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ftlabs/instantiable-fastdom.git"
+    "url": "git@github.com:orangemug/instantiable-fastdom.git"
   },
   "keywords": [
     "fastdom",
@@ -18,10 +18,10 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ftlabs/instantiable-fastdom/issues"
+    "url": "https://github.com/orangemug/instantiable-fastdom/issues"
   },
   "dependencies": {
-    "fastdom": "git://github.com/orangemug/fastdom.git#nodejs_fastdom",
+    "fastdom": "~0.8.4",
     "lodash.foreach": "~2.4.1"
   },
   "devDependencies": {
