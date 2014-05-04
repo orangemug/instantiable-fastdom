@@ -17,10 +17,4 @@ Allow fastdom to be instantiable so you can clear groups of jobs.
 ## Credit
 Code adapted from [fruitmachine-fastdom](https://github.com/ftlabs/fruitmachine-fastdom).
 
- * Wilson Page - [@wilsonpage](http://github.com/wilsonpage)
- * Rowan Beentje - [@rowanbeentje](http://github.com/rowanbeentje)
- * George Crawford - [@georgecrawford](http://github.com/georgecrawford)
- * Matt Andrews - [@matthew-andrews](http://github.com/matthew-andrews)
- * Ada Rose Edwards - [@adaroseedwards](http://github.com/adaroseedwards)
-
-
+ * Jamie Blair - [@orangemug](http://github.com/orangemug)
