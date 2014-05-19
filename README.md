@@ -5,6 +5,12 @@ Allow fastdom to be instantiable so you can clear groups of jobs.
 
 Code adapted from [fruitmachine-fastdom](https://github.com/ftlabs/fruitmachine-fastdom).
 
+## Installation ##
+
+```
+npm install instantiable-fastdom
+```
+
 ## Example
 
     var Fastdom = require("instantiable-fastdom");
