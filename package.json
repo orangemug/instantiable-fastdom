@@ -1,6 +1,6 @@
 {
   "name": "instantiable-fastdom",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Allow fastdom to be instantiable so you can clear groups of jobs.",
   "main": "./index.js",
   "scripts": {
@@ -21,8 +21,8 @@
     "url": "https://github.com/orangemug/instantiable-fastdom/issues"
   },
   "dependencies": {
-    "fastdom": "~0.8.4",
-    "lodash.foreach": "~2.4.1"
+    "fastdom": "^0.8.4",
+    "lodash.foreach": "^2.4.1"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
