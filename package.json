@@ -21,8 +21,7 @@
     "url": "https://github.com/orangemug/instantiable-fastdom/issues"
   },
   "dependencies": {
-    "fastdom": "^0.8.4",
-    "lodash.foreach": "^2.4.1"
+    "fastdom": "^0.8.4"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
