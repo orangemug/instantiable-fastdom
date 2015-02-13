@@ -1,23 +1,11 @@
 var assert = require("assert");
 var sinon  = require("sinon");
+var size   = require("lodash.size");
 
 var fastdom = require("fastdom");
 var raf     = require("./raf");
 var Fastdom = require("../");
 
-function size(obj) {
-  if (Object.keys) {
-    return Object.keys(obj).length;
-  } else {
-    var result = [];
-    for (prop in obj) {
-      if (obj.hasOwnProperty(prop)) {
-        result.push(prop);
-      }
-    }
-    return result.length;
-  }
-}
 
 describe("instantiable-fastdom", function() {
 
