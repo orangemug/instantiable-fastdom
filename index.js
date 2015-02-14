@@ -10,8 +10,6 @@
  * Module Dependencies
  */
 var fastdom = require('fastdom');
-var each    = require("lodash.foreach");
-
 
 // uid for jobs
 var uid = 0;
@@ -21,8 +19,8 @@ var uid = 0;
  * constructor
  */
 function Fastdom(_fastdom) {
-	// Mainly used for testing.
-	this._fastdom = _fastdom || fastdom;
+  // Mainly used for testing.
+  this._fastdom = _fastdom || fastdom;
   this._jobs = {
     read: {},
     write: {},
@@ -108,13 +106,17 @@ Fastdom.prototype.defer = function(frames, fn, ctx) {
  */
 Fastdom.prototype.clear = function() {
   var self = this;
-  var clear = function(id) {
-    self._fastdom.clear(id);
+  var clearItems = function(queue) {
+    for (var key in queue) {
+      if (queue.hasOwnProperty(key)) {
+        self._fastdom.clear(queue[key]);
+      }
+    }
   };
 
-  each(this._jobs.read,  clear);
-  each(this._jobs.write, clear);
-  each(this._jobs.defer, clear);
+  clearItems(this._jobs.read);
+  clearItems(this._jobs.write);
+  clearItems(this._jobs.defer);
 
   // Clear the queues
   this._jobs.read  = {};
