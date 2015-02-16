@@ -1,6 +1,6 @@
 {
   "name": "instantiable-fastdom",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Allow fastdom to be instantiable so you can clear groups of jobs.",
   "main": "./index.js",
   "scripts": {
