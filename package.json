@@ -24,10 +24,10 @@
     "fastdom": "^0.8.4"
   },
   "devDependencies": {
-    "mocha": "~1.18.2",
-    "sinon": "~1.9",
-    "testling": "~1.6.1",
-    "lodash.size": "~2.4.1"
+    "lodash.size": "^3.0.2",
+    "mocha": "^2.2.5",
+    "sinon": "^1.14.1",
+    "testling": "^1.7.1"
   },
   "testling": {
     "harness": "mocha",
